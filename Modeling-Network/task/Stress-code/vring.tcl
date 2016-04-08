@@ -4,7 +4,7 @@
 #===================================
 #     Simulation parameters setup
 #===================================
-set val(stop)   1.0                         ;# time of simulation end
+set val(stop)   5.0                         ;# time of simulation end , total waktu simulasi 
 
 #===================================
 #        Initialization        
@@ -14,11 +14,11 @@ set ns [new Simulator]
 $ns rtproto DV
 
 #Open the NS trace file
-set tracefile [open out_ring.tr w]
+set tracefile [open out.tr w]
 $ns trace-all $tracefile
 
 #Open the NAM trace file
-set namfile [open out_ring.nam w]
+set namfile [open out.nam w]
 $ns namtrace-all $namfile
 
 #===================================
@@ -36,8 +36,6 @@ set n7 [$ns node]
 
 $n1 shape square
 $n2 shape square
-
-
 
 #memberi warna router 1 ke 5
 $n1 color "red"
@@ -70,7 +68,7 @@ $ns queue-limit $n5 $n6 50
 $ns duplex-link $n6 $n7 5.0Mb 1ms DropTail
 $ns queue-limit $n6 $n7 50
 $ns duplex-link $n7 $n0 5.0Mb 1ms DropTail
-$ns queue-limit $n7 $n0 50 
+$ns queue-limit $n7 $n0 50
 
 #Give node position (for NAM)
 $ns duplex-link-op $n0 $n1 orient left-down
@@ -121,7 +119,7 @@ $cbr1 set packetSize_ 1000
 $cbr1 set rate_ 1.0Mb
 $cbr1 set random_ null
 
-#paket TCP dikirim di detik ke 0.5 sampai dengan menit ke 1.0
+#paket UDP dikirim di detik ke 0.5 sampai dengan menit ke 1.0
 $ns at 0.05 "$cbr1 start"
 $ns at 1.0 "$cbr1 stop"
 
@@ -138,7 +136,7 @@ proc finish {} {
     $ns flush-trace
     close $tracefile
     close $namfile
-    exec nam out_ring.nam &
+    exec nam out.nam &
     exit 0
 }
 $ns at $val(stop) "$ns nam-end-wireless $val(stop)"
