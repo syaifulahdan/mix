@@ -6,7 +6,7 @@
 -  Broadband networks
 -  Enterprise Resource Planning
 -  [Network Performance and Quality of Service] (https://github.com/syaifulahdan/mix/tree/master/Network-Performance-and-Quality-of-Service)
--  Nettwork Queue
+-  Network Queue
 -  Mobile Computing and Web Technologies
 -  Device Programming Network (Software Defined Netwroking)
 -  Reseach Methode
