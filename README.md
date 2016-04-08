@@ -1,7 +1,7 @@
 # mix
 
 -  Advanced Mathematics
--  Modeling Network
+-  [Modeling Network] (https://github.com/syaifulahdan/mix/tree/master/Modeling-Network)
 -  Computer network
 -  Broadband networks
 -  Enterprise Resource Planning
